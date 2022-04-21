@@ -509,9 +509,8 @@ class TopicEntryList(EntryCreateMixin, IntegratedFormMixin, ListView):
             first_entry = entries[0] if not self.entry else self.entry
 
             # Redirect to reference?
-            if all((self.view_mode == "regular", queryset_size == 1, self.request.GET.get("nr") != "true")) and (
-                reference := re.fullmatch(fr"\({SEE_EXPR}: (?!<)({RE_TOPIC_CHARSET})\)", first_entry.content)
-            ):
+            if all((self.view_mode == "regular", queryset_size == 1, self.request.GET.get("nr") != "true"))  and reference :
+                reference=re.fullmatch(fr"\({SEE_EXPR}: (?!<)({RE_TOPIC_CHARSET})\)", first_entry.content) 
                 title = reference.group(1)  # noqa
                 with suppress(Topic.DoesNotExist):
                     topic = Topic.objects_published.get(title=title)
@@ -610,7 +609,8 @@ class TopicEntryList(EntryCreateMixin, IntegratedFormMixin, ListView):
         )
 
     def render_to_response(self, context, **response_kwargs):
-        if (referent := context.get("referent")) is not None:
+        referent = context.get("referent")
+        if referent is not None:
             referrer = context["referrer"]
             notifications.info(
                 self.request,

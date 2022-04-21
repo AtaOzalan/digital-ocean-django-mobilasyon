@@ -161,7 +161,6 @@ class LeftFrame(PlainSerializer):
             (
                 param_tab  # noqa
                 if self.slug in settings.TABBED_CATEGORIES
-                
                 and (param_tab := f"{self.slug}_{self._manager.tab}") in pairs
                 else self.slug
             )
