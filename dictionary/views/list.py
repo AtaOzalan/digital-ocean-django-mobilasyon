@@ -123,8 +123,8 @@ class PeopleList(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         queryset = getattr(self, self.tab)()
-
-        if term := self.request.GET.get("search", "").strip():
+        term = self.request.GET.get("search", "").strip()
+        if term :
             queryset = queryset.filter(username__icontains=term)
 
         return queryset
@@ -398,8 +398,8 @@ class TopicEntryList(EntryCreateMixin, IntegratedFormMixin, ListView):
             return None
 
         filters = Q(content__icontains=keywords)
-
-        if keywords.startswith("@") and (username := keywords[1:]):
+        username = keywords[1:]
+        if keywords.startswith("@") and username:
             with suppress(Author.DoesNotExist):
                 author = Author.objects.get(username=username)  # noqa
                 filters |= Q(author=author)

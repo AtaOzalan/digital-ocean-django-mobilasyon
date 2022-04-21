@@ -116,7 +116,8 @@ class LeftFrame(PlainSerializer):
 
     @cached_property
     def safename(self):
-        if overridden := self.extra.get("safename"):
+        overridden = self.extra.get("safename")
+        if overridden :
             return overridden
 
         if self.slug in settings.NON_DB_CATEGORIES:
@@ -160,6 +161,7 @@ class LeftFrame(PlainSerializer):
             (
                 param_tab  # noqa
                 if self.slug in settings.TABBED_CATEGORIES
+                
                 and (param_tab := f"{self.slug}_{self._manager.tab}") in pairs
                 else self.slug
             )
