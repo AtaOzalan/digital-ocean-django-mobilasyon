@@ -1,6 +1,6 @@
 Django==3.2.12
 django-uuslug==2.0.0
-django-widget-tweaks==1.4.12
+django-widget-tweaks==1.4.11
 graphene-django==2.15.0
 python-dateutil==2.8.2
 user-agents==2.2.0
