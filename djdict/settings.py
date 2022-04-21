@@ -105,7 +105,7 @@ WSGI_APPLICATION = "djdict.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blogDB',
+        'NAME': 'blogdb',
         'USER': 'blog_admin',
         'PASSWORD': 'testing123',
         'HOST': 'localhost',
