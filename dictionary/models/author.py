@@ -487,8 +487,8 @@ class Author(AbstractUser):
 
         if equal_and_superior.exists():
             superior = equal_and_superior.filter(queue_priority__gt=self.queue_priority)
-
-            if superior_count := superior.count():
+            superior_count=superior.count()
+            if superior_count :
                 return superior_count + interqueue(self)
             return interqueue(self)
         return 1

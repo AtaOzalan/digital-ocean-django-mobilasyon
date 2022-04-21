@@ -78,7 +78,8 @@ class LeftFrameProcessor:
 
     @cached_property
     def _exclusions(self):
-        if exclusions := self.get_cookie("lfex"):
+        exclusions = self.get_cookie("lfex")
+        if exclusions :
             with suppress(JSONDecodeError):
                 parsed = json.loads(exclusions)
                 if isinstance(parsed, list) and all(isinstance(s, str) for s in parsed):
@@ -90,7 +91,8 @@ class LeftFrameProcessor:
 
     @cached_property
     def _extra(self):
-        if extra := self.get_cookie("lfea"):
+        extra = self.get_cookie("lfea")
+        if extra :
             try:
                 parsed = json.loads(extra)
                 if isinstance(parsed, dict):

@@ -87,11 +87,11 @@ def print_topic_title(context):
         "answered": _("entries with replies"),
         "images": _("images"),
     }
-
-    if (mode := context["mode"]) in mode_repr:
+    mode = context["mode"]
+    if mode in mode_repr:
         base += f" - {mode_repr[mode]}"
-
-    if (page := context["page_obj"].number) > 1:
+    page = context["page_obj"].number
+    if page > 1:
         base += " - " + _("page %(page)d") % {"page": page}
 
     return base
@@ -110,8 +110,8 @@ def print_entry_class(context):
             classes.append("private")
         if context.get("show_comments") and user.has_perm("dictionary.can_comment") and user.is_accessible:
             classes.append("commentable")
-
-    if gap := context.get("gap"):
+    gap = context.get("gap")
+    if gap :
         classes.append(f"mb-{gap}")
 
     return mark_safe(f"class=\"{' '.join(classes)}\"")

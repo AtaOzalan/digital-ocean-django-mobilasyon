@@ -116,8 +116,8 @@ def get_generic_privateuser():
 
 def get_theme_from_cookie(request):
     themes = ("dark", "light")
-
-    if (theme := request.COOKIES.get("theme", "light")) in themes:
+    theme = request.COOKIES.get("theme", "light")
+    if theme  in themes:
         return theme
 
     return "light"
