@@ -68,18 +68,18 @@ def linkify(weburl_match):
 
     if domain.endswith(settings.DOMAIN) and len(path) > 7:
         # Internal links (entries and topics)
-
-        if permalink := re.match(r"^/entry/([0-9]+)/?$", path):
+        permalink = re.match(r"^/entry/([0-9]+)/?$", path)
+        if permalink:
             return f'({SEE}: <a href="{path}">#{permalink.group(1)}</a>)'
-
-        if topic := re.match(r"^/topic/([-a-zA-Z0-9]+)/?$", path):
+        topic = re.match(r"^/topic/([-a-zA-Z0-9]+)/?$", path)
+        if topic:
             # Notice as we convert slug to title, this doesn't optimally translate
             # into original title, especially in non-English languages.
             slug = topic.group(1)
             guess = slug.replace("-", " ").strip()
             return f'({SEE}: <a href="{path}">{guess}</a>)'
-
-        if image := re.match(r"^/img/([a-z0-9]{8})/?$", path):
+        image = re.match(r"^/img/([a-z0-9]{8})/?$", path)
+        if image:
             return f'<a role="button" tabindex="0" data-img="/img/{image.group(1)}" aria-expanded="false">{IMAGE}</a>'  # noqa
 
     path_repr = f"/...{path[-32:]}" if len(path) > 35 else path  # Shorten long urls
