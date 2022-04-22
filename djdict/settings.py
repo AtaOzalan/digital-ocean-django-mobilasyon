@@ -140,7 +140,7 @@ SESSION_ENGINE = "dictionary.backends.sessions.db"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
-REDIS_URL = "redis://127.0.0.1:6379"
+REDIS_URL = "redis://0.0.0.0:6379"
 CELERY_BROKER_URL = REDIS_URL
 CELERY_EMAIL_TASK_CONFIG = {"default_retry_delay": 40}
 CACHES = {
