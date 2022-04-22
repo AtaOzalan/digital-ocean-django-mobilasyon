@@ -133,10 +133,10 @@ LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"
 
 
-STATIC_URL = "/static/"
-MEDIA_URL = "/media/"
 STATIC_ROOT = BASE_DIR / "static"
+STATIC_URL = BASE_DIR / "static"
 MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = BASE_DIR / "media"
 
 # Remove this setting if you are creating a brand new database.
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
