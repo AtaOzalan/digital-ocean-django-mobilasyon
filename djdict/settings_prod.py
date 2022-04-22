@@ -81,17 +81,17 @@ DATABASES = {
 }
 
 
-EMAIL_HOST = os.environ.get("EMAIL_HOST")
-EMAIL_PORT = os.environ.get("EMAIL_PORT")
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
 EMAIL_USE_TLS = True
 
-EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 CELERY_EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
-REDIS_URL = "redis://redis:6379/1"
+REDIS_URL = "redis://127.0.0.1:6379"
 CELERY_BROKER_URL = REDIS_URL
 CELERY_EMAIL_TASK_CONFIG = {"default_retry_delay": 40}
 CACHES = {
