@@ -28,7 +28,7 @@ SECRET_KEY = "3a20011c6f4a670035fb306db06e97e186e411c1a1ca28a3b17534d39be22b69"
 DEBUG = True
 
 # SECURITY WARNING: don't allow any other hosts except your real host in production!
-ALLOWED_HOSTS = ["164.92.198.148"]
+ALLOWED_HOSTS = ["164.92.198.148","mobilasyon.com","www.mobilasyon.com"]
 
 GRAPHENE = {"SCHEMA": "dictionary_graph.schema.schema"}
 
