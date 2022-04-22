@@ -157,11 +157,12 @@ class LeftFrame(PlainSerializer):
         if hasattr(self.extra.get("user_object"), "username"):
             pairs["userstats_channels"] = f"?a=search&keywords=@{self.extra.get('user_object').username}"
 
-        key = ( # noqa
+        
+        key = ( 
             (
-                param_tab  # noqa
+                f"{self.slug}_{self._manager.tab}"  # noqa
                 if self.slug in settings.TABBED_CATEGORIES
-                and (param_tab := f"{self.slug}_{self._manager.tab}") in pairs 
+                and  f"{self.slug}_{self._manager.tab}" in  (pairs) 
                 else self.slug
             )
             if self.slug in settings.NON_DB_CATEGORIES
