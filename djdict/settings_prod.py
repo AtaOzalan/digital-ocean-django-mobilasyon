@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "3a20011c6f4a670035fb306db06e97e186e411c1a1ca28a3b17534d39be22b69"
 DEBUG = int(os.environ.get("DEBUG", default=0))
-ALLOWED_HOSTS = ["164.92.198.148","mobilasyon.com","www.mobilasyon.com"]
+ALLOWED_HOSTS = ['164.92.198.148','mobilasyon.com','www.mobilasyon.com']
 
 GRAPHENE = {"SCHEMA": "dictionary_graph.schema.schema"}
 
