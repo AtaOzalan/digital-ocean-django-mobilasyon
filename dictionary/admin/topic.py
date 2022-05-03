@@ -25,13 +25,6 @@ class TopicAdmin(admin.ModelAdmin):
                 "description": _(
                     "<br>You can embed social media content into topics. You need to specify links of the media line"
                     " by line. Available options and example links:<br><br>"
-                    "<b>YouTube video: </b>(https://www.youtube.com/embed/qXN15uh4DLU)<br>"
-                    "<b>Instagram post: </b>(https://www.instagram.com/p/B4nfnuRg0sp/)<br>"
-                    "<b>Spotify song: </b>(https://open.spotify.com/embed/track/1idpc4Pr94WH9GYU5umNfz)<br>"
-                    "<b>Spotify album: </b>(https://open.spotify.com/embed/album/1yGbNOtRIgdIiGHOEBaZWf)<br>"
-                    "<b>Spotify playlist: </b>"
-                    "(https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DX1tz6EDao8it)<br>"
-                    "<b>Tweet: </b>(https://twitter.com/kaankural/status/16867365789)<br>"
                 ),
             },
         ),
